@@ -38,8 +38,8 @@ $listaDeTurmas = lerTurmas($conexao);
                             <td class="turmas nome"><?= $turma['nome'] ?></td>
                             <td class="turmas descricao"><?= $turma['descricao'] ?></td>
                             <td class="turmas tipo"><?= $turma['tipo'] ?></td>
-                            <td class="turmas atualizar"><a href="update.php?id=<?= $turma['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="turmas excluir"><a href="delete.php?id=<?= $turma['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                            <td class="turmas atualizar"><a href="updateTurmas.php?id=<?= $turma['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
+                            <td class="turmas excluir"><a href="deleteTurmas.php?id=<?= $turma['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                         </tr>
                     <?php
@@ -52,7 +52,7 @@ $listaDeTurmas = lerTurmas($conexao);
 para exibir a relação de alunos existentes no banco de dados e links dinâmicos para as páginas de atualização e exclusão. -->
         <div class="row mt-4">
             <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar</a></p>
-            <p class="col text-center"><a href="inserir.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir Turma</a></p>
+            <p class="col text-center"><a href="insertTurmas.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir Turmas</a></p>
         </div>
     </div>
 

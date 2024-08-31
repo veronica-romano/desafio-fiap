@@ -37,8 +37,8 @@ $listaDeMatriculas = lerMatriculas($conexao);
                             <td class="matriculas matricula"><?= $matricula['aluno_id'] ?></td>
                             <td class="matriculas turma"><?= $matricula['turma
                             _id'] ?></td>
-                            <td class="matriculas atualizar"><a href="update.php?id=<?= $matricula['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="matriculas excluir"><a href="delete.php?id=<?= $matricula['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                            <td class="matriculas atualizar"><a href="updateMatriculas.php?id=<?= $matricula['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
+                            <td class="matriculas excluir"><a href="deleteMatriculas.php?id=<?= $matricula['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                         </tr>
                     <?php
@@ -51,7 +51,7 @@ $listaDeMatriculas = lerMatriculas($conexao);
 para exibir a relação de alunos existentes no banco de dados e links dinâmicos para as páginas de atualização e exclusão. -->
         <div class="row mt-4">
             <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar</a></p>
-            <p class="col text-center"><a href="inserir.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir Matrícula</a></p>
+            <p class="col text-center"><a href="insertMatriculas.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir Matrícula</a></p>
         </div>
     </div>
 

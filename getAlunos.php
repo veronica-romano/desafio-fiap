@@ -24,7 +24,8 @@ $listaDeAlunos = lerAlunos($conexao);
                 <thead>
                     <th scope="col">Usuário</th>
                     <th scope="col">Nome</th>
-                    <th scope="col"> Editar</th>
+                    <th scope="col">Nascimento</th>
+                    <th scope="col">Editar</th>
                     <th scope="col">Excluir</th>
                 </thead>
                 <tbody>
@@ -34,8 +35,9 @@ $listaDeAlunos = lerAlunos($conexao);
                         <tr>
                             <th scope="row" class="alunos id"><?= $aluno['id'] ?></th>
                             <td class="alunos nome"><?= $aluno['nome'] ?></td>
-                            <td class="alunos atualizar"><a href="update.php?id=<?= $aluno['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="alunos excluir"><a href="delete.php?id=<?= $aluno['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                            <td class="alunos nascimento"><?= $aluno['nascimento'] ?></td>
+                            <td class="alunos atualizar"><a href="updateAlunos.php?id=<?= $aluno['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
+                            <td class="alunos excluir"><a href="deleteAlunos.php?id=<?= $aluno['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                         </tr>
                     <?php

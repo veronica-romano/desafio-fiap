@@ -3,7 +3,7 @@ require_once "src/connect.php";
 
 //get
 function lerAlunos(PDO $conexao):array{
-    $sql = "SELECT * FROM aluno";
+    $sql = "SELECT * FROM aluno ORDER BY nome ASC";
 
     try {
         setlocale(LC_ALL, 'pt_BR');
@@ -34,7 +34,7 @@ function lerUmAluno(PDO $conexao, int $id):array{
 
 
 //Insert
-function inserirAluno(PDO $conexao, string $nome, string $snascimento):void{
+function inserirAluno(PDO $conexao, string $nome, string $nascimento):void{
     $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, :nascimento)";
     try {
         $consulta = $conexao->prepare($sql);

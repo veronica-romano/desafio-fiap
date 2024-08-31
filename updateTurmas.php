@@ -2,15 +2,16 @@
 require_once "src/functionsTurmas.php";
 $listaDeTurmas = lerTurmas($conexao);
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$aluno = lerUmaTurma($conexao, $id);
-$listaDeTurmas = lerTurmas($conexao);
+$turma = lerUmaTurma($conexao, $id);
+require_once "src/functionsTurmas.php";
+$tiposDeTurma = tiposTurma($conexao);
 if (isset($_POST['atualizar'])) {
     //echo "ok!";
-    require_once "../exercicio-php-crud/src/functionsTurmas.php";
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-    $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-    $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
-    atualizarAluno($conexao, $id, $nome, $descricao);
+	require_once "src/functionsTurmas.php";
+	$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+	$tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
+	$descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+    atualizarTurma($conexao, $id, $nome, $tipo, $descricao);
     header("location:getTurmas.php?status=sucesso");
 }
 ?>
@@ -34,26 +35,31 @@ if (isset($_POST['atualizar'])) {
         <form action="" method="post">
             <p>
                 <label for="nome" class="form-label">Nome:</label>
-                <input type="text" class="form-control mb-4" name="nome" id="nome" value="<?= $aluno['nome'] ?>" required>
+                <input type="text" class="form-control mb-4" name="nome" id="nome" value="<?= $turma['nome'] ?>" required>
             </p>
             <div class="row">
                 <div class="col">
                     <p>
                         <label for="descricao" class="form-label">descricao:</label>
-                        <input type="text" class="form-control mb-4" name="descricao" id="descricao" value="<?= $aluno['descricao'] ?>" required>
+                        <input type="text" class="form-control mb-4" name="descricao" id="descricao" value="<?= $turma['descricao'] ?>" required>
                     </p>
                 </div>
                 <div class="col">
                     <p>
                         <label for="tipo" class="form-label">tipo:</label>
-                        <input type="text" class="form-control mb-4" name="tipo" id="tipo" value="<?= $aluno['tipo'] ?>" required>
+                        <select name="tipo" id="tipo" class="form-control">
+							<option value="<?= $turma['tipo'] ?>"><?= $turma['tipo'] ?></option>
+							<?php foreach ($tiposDeTurma as $tipo): ?>
+								<option value="<?= htmlspecialchars($tipo); ?>"><?= ucfirst(htmlspecialchars($tipo)); ?></option>
+							<?php endforeach; ?>
+						</select>
                     </p>
                 </div>
             </div>
 
 
             <div class="row">
-                <p class="col text-center mt-4"><a href="visualizar.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i>Voltar à lista de turmas</a></p>
+                <p class="col text-center mt-4"><a href="getTurmas.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i>Voltar à lista de turmas</a></p>
                 <p class="col text-center">
                     <button type="submit" class="btn btn-success btn-lg mt-4" name="atualizar"><i class="bi bi-check-square"></i> Atualizar dados da turma</button>
                 </p>

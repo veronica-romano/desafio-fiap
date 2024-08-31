@@ -1,63 +1,67 @@
 <?php
-    if(isset($_POST['inserir'])){
-        //echo "ok!";
-        require_once "src/functions.php";
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-		$primeira = filter_input(INPUT_POST, 'primeira', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-		$segunda = filter_input(INPUT_POST, 'segunda', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-		$media = ($primeira + $segunda)/2;
-		if ($media >= 7) {
-			$situacao = 'Aprovado';
-		} else {
-			$situacao = 'Reprovado';
-		}
-		 
-        inserirAluno($conexao, $nome);
-        header("location:visualizar.php");
-    }
+if (isset($_POST['inserir'])) {
+	//echo "ok!";
+	require_once "src/functionsMatriculas.php";
+	$aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_SPECIAL_CHARS);
+	$turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+	inserirAluno($conexao, $aluno_id, $turma_id);
+	header("location:getMatriculas.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cadastrar um novo aluno - Exercício CRUD com PHP e MySQL</title>
-<link href="css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fazer Matrícula - CRUD com PHP e MySQL</title>
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
+
 <body>
-<div class="container">
-	<h1 class="text-center mt-4">Cadastrar um novo aluno </h1>
-    <hr>
-    <br>
-    <p class="text-center">Utilize o formulário abaixo para cadastrar um novo aluno.</p>
-	<br>
-	<form action="#" method="post">
-	
-			<p><label for="nome" class="form-label">Nome:</label>
-	    <input type="text" class="form-control" name="nome" id="nome" required></p>
-		<div class="row">
-			<div class="col">
-			<p><label for="aluno" class="form-label">Aluno:</label>
-	    <input type="number" class="form-control" name="aluno"  step="0.1" min="0.0" max="10" required></p>
+	<div class="container">
+		<h1 class="text-center mt-4">Matricular aluno</h1>
+		<hr>
+		<br>
+		<p class="text-center">Utilize o formulário abaixo para matricular um aluno.</p>
+		<br>
+		<form action="#" method="post">
+
+			<div class="row">
+				<div class="col">
+					<p><label for="aluno" class="form-label">Aluno:</label>
+						<search>
+							<form>
+								<input name="fsrch" id="fsrch" placeholder="Encontrar aluno" class="form-control">
+							</form>
+						</search>
+					</p>
+				</div>
+				<div class="col">
+					<p><label for="turma" class="form-label">Turma:</label>
+						<search>
+							<form>
+								<input name="fsrch" id="fsrch" placeholder="Encontrar turma" class="form-control">
+							</form>
+						</search>
+					</p>
+				</div>
 			</div>
-			<div class="col">
-			<p><label for="turma" class="form-label">Turma:</label>
-	    <input type="number" class="form-control" name="turma"  step="0.1" min="0.0" max="10" required></p>
+			<div class="row mt-4">
+				<p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar ao início</a></p>
+				<p class="col text-center">
+					<button type="submit" name="inserir" class="btn btn-success btn-lg"><i class="bi bi-check-square"></i> Salvar</button>
+				</p>
 			</div>
-		</div>
-		<div class="row mt-4">
-        <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar ao início</a></p>
-		<p class="col text-center">
-		<button type="submit"   name="inserir" class="btn btn-success btn-lg"><i class="bi bi-check-square"></i>Salvar</button>
-		</p>
-</div>
-      
-	</form>
-    <hr> 
-  </body>
+
+		</form>
+		<hr>
+</body>
+
 </html>
 
 </body>
+
 </html>

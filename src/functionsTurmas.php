@@ -47,6 +47,22 @@ function inserirTurma(PDO $conexao, string $nome, string $tipo, string $descrica
     }
 }
 
+function tiposTurma(PDO $conexao): array {
+    $sql = "SHOW COLUMNS FROM turma WHERE Field = 'tipo'";
+    try {
+        $consulta = $conexao->prepare($sql);
+        $consulta->execute();
+        $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        // Extrair os valores ENUM da coluna 'tipo'
+        $enum_values = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/","\\2", $resultado['Type']));
+
+        return $enum_values;
+    } catch (Exception $erro) {
+       die("Erro: " . $erro->getMessage());
+    }
+}
+
 
 //Update
 function atualizarTurma(PDO $conexao, int $id, string $nome, string $tipo, string $descricao):void{
@@ -56,7 +72,7 @@ function atualizarTurma(PDO $conexao, int $id, string $nome, string $tipo, strin
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
         $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
         $consulta->bindParam(':tipo', $tipo, PDO::PARAM_STR);
-        $consulta->bindParam(':descricao', $tipo, PDO::PARAM_STR);
+        $consulta->bindParam(':descricao', $descricao, PDO::PARAM_STR);
         $consulta->execute();
     } catch (Exception $erro) {
        die("Erro: ".$erro->getMessage());

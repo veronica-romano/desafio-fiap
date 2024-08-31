@@ -6,7 +6,7 @@ $aluno = lerUmAluno($conexao, $id);
 $listaDeAlunos = lerAlunos($conexao);
 if (isset($_POST['atualizar'])) {
     //echo "ok!";
-    require_once "../exercicio-php-crud/src/functionsAlunos.php";
+    require_once "src/functionsAlunos.php";
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $nascimento = filter_input(INPUT_POST, 'nascimento', FILTER_SANITIZE_SPECIAL_CHARS);
     atualizarAluno($conexao, $id, $nome, $nascimento);
@@ -39,7 +39,7 @@ if (isset($_POST['atualizar'])) {
                 <div class="col">
                     <p>
                         <label for="nascimento" class="form-label">Data de nascimento:</label>
-                        <input name="nascimento" class="form-control" type="number" id="nascimento" oninput="getAverage()" value="<?= $aluno['nascimento'] ?>" step="0.1" min="0.0" max="10" required>
+                        <input type="date" class="form-control" name="nascimento" value="<?= $aluno['nascimento'] ?>" required>
                     </p>
                 </div>
             </div>

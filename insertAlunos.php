@@ -3,7 +3,7 @@ if (isset($_POST['inserir'])) {
 	//echo "ok!";
 	require_once "src/functionsAlunos.php";
 	$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-	$nascimento = filter_input(INPUT_POST, 'nascimento', FILTER_SANITIZE_SPECIAL_CHARS);
+	$nascimento = filter_input(INPUT_POST, 'nascimento');
 	inserirAluno($conexao, $nome, $nascimento);
 	header("location:getAlunos.php");
 }
@@ -27,7 +27,7 @@ if (isset($_POST['inserir'])) {
 		<br>
 		<p class="text-center">Utilize o formulário abaixo para cadastrar um novo aluno.</p>
 		<br>
-		<form action="#" method="post">
+		<form action="#" method="POST">
 
 			<p><label for="nome" class="form-label">Nome:</label>
 				<input type="text" class="form-control" name="nome" id="nome" required>
