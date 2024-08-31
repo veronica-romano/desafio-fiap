@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['inserir'])){
         //echo "ok!";
-        require_once "src/funcoes.php";
+        require_once "src/functions.php";
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 		$primeira = filter_input(INPUT_POST, 'primeira', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 		$segunda = filter_input(INPUT_POST, 'segunda', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -12,7 +12,7 @@
 			$situacao = 'Reprovado';
 		}
 		 
-        inserirAluno($conexao, $nome, $primeira, $segunda, $media, $situacao);
+        inserirAluno($conexao, $nome);
         header("location:visualizar.php");
     }
 ?>
@@ -39,18 +39,18 @@
 	    <input type="text" class="form-control" name="nome" id="nome" required></p>
 		<div class="row">
 			<div class="col">
-			<p><label for="primeira" class="form-label">Primeira nota:</label>
-	    <input type="number" class="form-control" name="primeira"  step="0.1" min="0.0" max="10" required></p>
+			<p><label for="aluno" class="form-label">Aluno:</label>
+	    <input type="number" class="form-control" name="aluno"  step="0.1" min="0.0" max="10" required></p>
 			</div>
 			<div class="col">
-			<p><label for="segunda" class="form-label">Segunda nota:</label>
-	    <input type="number" class="form-control" name="segunda"  step="0.1" min="0.0" max="10" required></p>
+			<p><label for="turma" class="form-label">Turma:</label>
+	    <input type="number" class="form-control" name="turma"  step="0.1" min="0.0" max="10" required></p>
 			</div>
 		</div>
 		<div class="row mt-4">
         <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar ao início</a></p>
 		<p class="col text-center">
-		<button type="submit"   name="inserir" class="btn btn-success btn-lg"><i class="bi bi-check-square"></i> Cadastrar aluno</button>
+		<button type="submit"   name="inserir" class="btn btn-success btn-lg"><i class="bi bi-check-square"></i>Salvar</button>
 		</p>
 </div>
       

@@ -3,7 +3,7 @@ require_once "src/connect.php";
 
 //get
 function lerAlunos(PDO $conexao):array{
-    $sql = "SELECT * FROM alunos";
+    $sql = "SELECT * FROM aluno";
 
     try {
         setlocale(LC_ALL, 'pt_BR');
@@ -19,7 +19,7 @@ function lerAlunos(PDO $conexao):array{
 
 ///getOne
 function lerUmAluno(PDO $conexao, int $id):array{
-    $sql = "SELECT * FROM alunos WHERE id = :id";
+    $sql = "SELECT * FROM aluno WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
@@ -34,15 +34,12 @@ function lerUmAluno(PDO $conexao, int $id):array{
 
 
 //Insert
-function inserirAluno(PDO $conexao, string $nome, float $primeira, float $segunda, float $media, string $situacao):void{
-    $sql = "INSERT INTO alunos (nome, primeira, segunda, media, situacao) VALUES (:nome, :primeira, :segunda, :media, :situacao)";
+function inserirAluno(PDO $conexao, string $nome, string $snascimento):void{
+    $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, nascimento)";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
-        $consulta->bindParam(':primeira', $primeira, PDO::PARAM_STR);
-        $consulta->bindParam(':segunda', $segunda, PDO::PARAM_STR);
-        $consulta->bindParam(':media', $media, PDO::PARAM_STR);
-        $consulta->bindParam(':situacao', $situacao, PDO::PARAM_STR);
+        $consulta->bindParam(':nascimento', $nascimento, PDO::PARAM_STR);
         $consulta->execute();
     } catch (Exception $erro) {
        die("Erro: ".$erro->getMessage());
@@ -51,16 +48,13 @@ function inserirAluno(PDO $conexao, string $nome, float $primeira, float $segund
 
 
 //Update
-function atualizarAluno(PDO $conexao, int $id, string $nome, float $primeira, float $segunda, float $media, string $situacao):void{
-    $sql = "UPDATE alunos SET nome = :nome, primeira = :primeira, segunda = :segunda, media = :media, situacao = :situacao WHERE id = :id";
+function atualizarAluno(PDO $conexao, int $id, string $nome, string $nascimento):void{
+    $sql = "UPDATE aluno SET nome = :nome, nascimento = :nascimento WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
         $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
-        $consulta->bindParam(':primeira', $primeira, PDO::PARAM_STR);
-        $consulta->bindParam(':segunda', $segunda, PDO::PARAM_STR);
-        $consulta->bindParam(':media', $media, PDO::PARAM_STR);
-        $consulta->bindParam(':situacao', $situacao, PDO::PARAM_STR);
+        $consulta->bindParam(':nascimento', $nascimento, PDO::PARAM_STR);
         $consulta->execute();
     } catch (Exception $erro) {
        die("Erro: ".$erro->getMessage());
@@ -70,7 +64,7 @@ function atualizarAluno(PDO $conexao, int $id, string $nome, float $primeira, fl
 
 //Delete
 function excluirAluno(PDO $conexao, int $id):void{
-    $sql = "DELETE FROM alunos WHERE id = :id";
+    $sql = "DELETE FROM aluno WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
