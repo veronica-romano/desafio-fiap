@@ -1,11 +1,11 @@
 <?php
 if (isset($_POST['inserir'])) {
 	//echo "ok!";
-	require_once "src/functions.php";
+	require_once "src/functionsAlunos.php";
 	$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 	$nascimento = filter_input(INPUT_POST, 'nascimento', FILTER_SANITIZE_SPECIAL_CHARS);
 	inserirAluno($conexao, $nome, $nascimento);
-	header("location:visualizar.php");
+	header("location:getAlunos.php");
 }
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ if (isset($_POST['inserir'])) {
 			<div class="row">
 				<div class="col">
 					<p><label for="nascimento" class="form-label">Data de nascimento:</label>
-						<input type="date" class="form-control" name="nascimento" step="0.1" min="0.0" max="10" required>
+						<input type="date" class="form-control" name="nascimento" required>
 					</p>
 				</div>
 			</div>

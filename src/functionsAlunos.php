@@ -35,7 +35,7 @@ function lerUmAluno(PDO $conexao, int $id):array{
 
 //Insert
 function inserirAluno(PDO $conexao, string $nome, string $snascimento):void{
-    $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, nascimento)";
+    $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, :nascimento)";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
