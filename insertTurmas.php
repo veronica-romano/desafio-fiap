@@ -27,26 +27,26 @@ if (isset($_POST['inserir'])) {
 
 <body>
 	<div class="container">
-		<h1 class="text-center mt-4">Cadastrar um novo aluno </h1>
+		<h1 class="text-center mt-4">Cadastrar turma </h1>
 		<hr>
 		<br>
-		<p class="text-center">Utilize o formulário abaixo para cadastrar um novo aluno.</p>
+		<p class="text-center">Utilize o formulário abaixo para cadastrar uma turma.</p>
 		<br>
 		<form action="#" method="post">
 
 			<p><label for="nome" class="form-label">Nome:</label>
-				<input type="text" class="form-control" name="nome" id="nome" required>
+				<input type="text" class="form-control" name="nome" id="validationDefault01" required>
 			</p>
 			<div class="row">
 				<div class="col">
 					<p><label for="descricao" class="form-label">Descricao:</label>
-						<input type="text" class="form-control" name="descricao" required>
+						<input type="text" class="form-control" id="validationDefault01" name="descricao" required>
 					</p>
 				</div>
 				<div class="col">
 					<p><label for="segunda" class="form-label">Tipo:</label>
-						<select name="tipo" id="tipo" class="form-control">
-							<option value="Selecione o tipo de turma">Selecione o tipo de turma</option>
+						<select name="tipo" id="validationDefault01" class="form-control" required>
+							<option value="">Selecione o tipo de turma</option>
 
 							<?php foreach ($tiposDeTurma as $tipo): ?>
 								<option value="<?= htmlspecialchars($tipo); ?>"><?= ucfirst(htmlspecialchars($tipo)); ?></option>

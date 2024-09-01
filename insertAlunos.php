@@ -30,7 +30,7 @@ if (isset($_POST['inserir'])) {
 		<form action="#" method="POST">
 
 			<p><label for="nome" class="form-label">Nome:</label>
-				<input type="text" class="form-control" name="nome" id="nome" required>
+				<input type="text" class="form-control" name="nome" id="validationDefault01" required>
 			</p>
 			<div class="row">
 				<div class="col">

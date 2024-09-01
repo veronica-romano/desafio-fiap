@@ -36,7 +36,7 @@ if (isset($_POST['inserir'])) {
 			<div class="row">
 				<div class="col">
 					<p><label for="aluno" class="form-label">Aluno:</label>
-						<select id="aluno_id" name="aluno_id"  class="form-control">
+						<select id="validationDefault01"  name="aluno_id"  class="form-control" required>
 							<option value="">Selecione um aluno</option>
 							<!-- PHP will generate options here -->
 							<?php foreach ($listaDeAlunos as $aluno): ?>
@@ -47,7 +47,7 @@ if (isset($_POST['inserir'])) {
 				</div>
 				<div class="col">
 					<p><label for="turma" class="form-label">Turma:</label>
-						<select id="turma_id" name="turma_id" class="form-control">
+						<select id="validationDefault01" name="turma_id" class="form-control" required>
 							<option value="">Selecione a turma</option>
 							<?php foreach ($listaDeTurmas as $turma): ?>
 								<option value="<?= $turma['id']; ?>"><?= $turma['nome']; ?></option>
