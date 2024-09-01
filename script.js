@@ -258,9 +258,9 @@ $(document).ready( function () {
             "infoEmpty": "Mostrando 0 até 0 de 0 registro(s)",
             "processing": "Carregando...",
             "searchPlaceholder": "Buscar registros"
-        } 
+        } ,
             
-        
+       "order": []
     }
     );
 } );
