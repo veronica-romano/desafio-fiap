@@ -35,7 +35,7 @@ function lerUmaMatricula(PDO $conexao, int $id):array{
 
 //Insert
 function inserirMatricula(PDO $conexao, string $aluno_id, string $turma_id):void{
-    $sql = "INSERT INTO matricula (aluno_id, turma_id) VALUES (:aluno_id, turma_id)";
+    $sql = "INSERT INTO matricula (aluno_id, turma_id) VALUES (:aluno_id, :turma_id)";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':aluno_id', $aluno_id, PDO::PARAM_STR);

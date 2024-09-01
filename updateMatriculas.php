@@ -3,10 +3,13 @@ require_once "src/functionsMatriculas.php";
 $listaDeMatriculas = lerMatriculas($conexao);
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $matricula = lerUmaMatricula($conexao, $id);
-$listaDeMatriculas = lerMatriculas($conexao);
+require_once "src/functionsAlunos.php";
+$listaDeAlunos = lerAlunos($conexao);
+require_once "src/functionsTurmas.php";
+$listaDeTurmas = lerTurmas($conexao);
 if (isset($_POST['atualizar'])) {
     //echo "ok!";
-    require_once "../exercicio-php-crud/src/functionsMatriculas.php";
+    require_once "src/functionsMatriculas.php";
     $aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_SPECIAL_CHARS);
     $turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     atualizarAluno($conexao, $id, $aluno_id, $turma_id);
@@ -27,22 +30,39 @@ if (isset($_POST['atualizar'])) {
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">Atualizar dados da turma </h1>
+        <h1 class="text-center mt-4">Atualizar matrícula </h1>
         <hr>
         <p class="text-center">Utilize o formulário abaixo para atualizar a matrícula.</p>
         <form action="" method="post">
             <p>
                 <label for="aluno_id" class="form-label">Aluno:</label>
-                <input type="text" class="form-control mb-4" name="aluno_id id=" aluno_id value="<?= $matricula['aluno_id'] ?>" required>
+                <select id="aluno_id" name="aluno_id" class="form-control">
+
+                    <!-- PHP will generate options here -->
+                    <?php foreach ($listaDeAlunos as $aluno): ?>
+                        <option value="<?= htmlspecialchars($aluno['id']); ?>" <?= $aluno['id'] == $matricula['aluno_id'] ? 'selected' : ''; ?>>
+                            <?= htmlspecialchars($aluno['nome']); ?>
+                        </option>
+                     
+                    <?php endforeach; ?>
+                </select>
             </p>
             <div class="row">
                 <div class="col">
                     <p>
                         <label for="turma_id" class="form-label">Turma:</label>
-                        <input type="text" class="form-control mb-4" name="turma_id" id="turma_id" value="<?= $matricula['turma_id'] ?>" required>
+                        <select id="turma_id" name="turma_id" class="form-control">
+
+                            <?php foreach ($listaDeTurmas as $turma): ?>
+                                <option value="<?= htmlspecialchars($turma['id']); ?>" <?= $turma['id'] == $matricula['turma_id'] ? 'selected' : ''; ?>>
+                            <?= htmlspecialchars($turma['nome']); ?>
+                        </option>
+                            <?php endforeach; ?>
+
+                        </select>
                     </p>
                 </div>
-                
+
             </div>
 
 

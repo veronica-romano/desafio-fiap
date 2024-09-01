@@ -1,10 +1,14 @@
 <?php
+require_once "src/functionsAlunos.php";
+$listaDeAlunos = lerAlunos($conexao);
+require_once "src/functionsTurmas.php";
+$listaDeTurmas = lerTurmas($conexao);
 if (isset($_POST['inserir'])) {
 	//echo "ok!";
 	require_once "src/functionsMatriculas.php";
-	$aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_SPECIAL_CHARS);
-	$turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-	inserirAluno($conexao, $aluno_id, $turma_id);
+	$aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_NUMBER_INT);
+	$turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_INT);
+	inserirMatricula($conexao, $aluno_id, $turma_id);
 	header("location:getMatriculas.php");
 }
 ?>
@@ -32,20 +36,24 @@ if (isset($_POST['inserir'])) {
 			<div class="row">
 				<div class="col">
 					<p><label for="aluno" class="form-label">Aluno:</label>
-						<search>
-							<form>
-								<input name="fsrch" id="fsrch" placeholder="Encontrar aluno" class="form-control">
-							</form>
-						</search>
+						<select id="aluno_id" name="aluno_id"  class="form-control">
+							<option value="">Selecione um aluno</option>
+							<!-- PHP will generate options here -->
+							<?php foreach ($listaDeAlunos as $aluno): ?>
+								<option value="<?= $aluno['id']; ?>"><?= $aluno['nome']; ?></option>
+							<?php endforeach; ?>
+						</select>
 					</p>
 				</div>
 				<div class="col">
 					<p><label for="turma" class="form-label">Turma:</label>
-						<search>
-							<form>
-								<input name="fsrch" id="fsrch" placeholder="Encontrar turma" class="form-control">
-							</form>
-						</search>
+						<select id="turma_id" name="turma_id" class="form-control">
+							<option value="">Selecione a turma</option>
+							<?php foreach ($listaDeTurmas as $turma): ?>
+								<option value="<?= $turma['id']; ?>"><?= $turma['nome']; ?></option>
+							<?php endforeach; ?>
+
+						</select>
 					</p>
 				</div>
 			</div>
@@ -62,6 +70,7 @@ if (isset($_POST['inserir'])) {
 
 </html>
 
-</body>
+
+
 
 </html>

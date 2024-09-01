@@ -1,6 +1,11 @@
 <?php
 require_once "src/functionsMatriculas.php";
 $listaDeMatriculas = lerMatriculas($conexao);
+require_once "src/functionsAlunos.php";
+$listaDeAlunos = lerAlunos($conexao);
+require_once "src/functionsTurmas.php";
+$listaDeTurmas = lerTurmas($conexao);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,9 +39,22 @@ $listaDeMatriculas = lerMatriculas($conexao);
                     ?>
                         <tr>
                             <th scope="row" class="matriculas id"><?= $matricula['id'] ?></th>
-                            <td class="matriculas matricula"><?= $matricula['aluno_id'] ?></td>
-                            <td class="matriculas turma"><?= $matricula['turma
-                            _id'] ?></td>
+                            <td class="matriculas aluno"> <?php
+                                                            foreach ($listaDeAlunos as $aluno) {
+                                                                if ($matricula['aluno_id'] == $aluno['id']) {
+                                                                    echo htmlspecialchars($aluno['nome']);
+                                                                    break; // Exit the loop once the name is found
+                                                                }
+                                                            }
+                                                            ?></td>
+                            <td class="matriculas turma"> <?php
+                                                            foreach ($listaDeTurmas as $turma) {
+                                                                if ($matricula['turma_id'] == $turma['id']) {
+                                                                    echo htmlspecialchars($turma['nome']);
+                                                                    break; // Exit the loop once the name is found
+                                                                }
+                                                            }
+                                                            ?></td>
                             <td class="matriculas atualizar"><a href="updateMatriculas.php?id=<?= $matricula['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
                             <td class="matriculas excluir"><a href="deleteMatriculas.php?id=<?= $matricula['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
