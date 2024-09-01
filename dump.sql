@@ -65,7 +65,7 @@ INSERT INTO Turma (nome, descricao, tipo) VALUES
 ('Realidade Virtual', 'Ambientes virtuais imersivos', 'nano'),
 ('Blockchain', 'Tecnologia de registros distribuídos', 'free');
 
--
+
 INSERT INTO Matricula (aluno_id, turma_id) VALUES (1, 1);
 INSERT INTO Matricula (aluno_id, turma_id) VALUES (1, 2);
 INSERT INTO Matricula (aluno_id, turma_id) VALUES (2, 3);
