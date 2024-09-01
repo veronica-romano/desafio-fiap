@@ -21,6 +21,7 @@
 
 ### Importante:
 
+- Usuario e senha do bando de dados devem ser ajustados na sua versão;
 - Antes de excluir um aluno, é necessário excluir todas as matrículas em que o aluno está;
 - Antes de excluir uma turma, é necessário excluir todas as matrículas em que a turma está;
 
