@@ -1,3 +1,8 @@
+CREATE DATABASE desafio_fiap;
+
+USE desafio_fiap;
+
+
 CREATE TABLE Aluno (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL UNIQUE,
