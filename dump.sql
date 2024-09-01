@@ -3,21 +3,21 @@ CREATE DATABASE desafio_fiap;
 USE desafio_fiap;
 
 
-CREATE TABLE Aluno (
+CREATE TABLE aluno (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL UNIQUE,
     nascimento DATE NOT NULL,
     CHECK (LENGTH(nome) >= 3)
 );
 
-CREATE TABLE Turma (
+CREATE TABLE turma (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     tipo ENUM('on', 'pos', 'nano', 'free') NOT NULL
 );
 
-CREATE TABLE Matricula (
+CREATE TABLE tatricula (
     id INT PRIMARY KEY AUTO_INCREMENT,
     aluno_id INT NOT NULL,
     turma_id INT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Matricula (
     UNIQUE (aluno_id, turma_id)
 );
 
-INSERT INTO Aluno (nome, nascimento) VALUES
+INSERT INTO aluno (nome, nascimento) VALUES
 ('Alice Souza', '2005-01-15'),
 ('Bruno Lima', '2004-03-22'),
 ('Carla Mendes', '2003-07-30'),
@@ -48,7 +48,7 @@ INSERT INTO Aluno (nome, nascimento) VALUES
 ('Tatiana Gomes', '2005-08-12'),
 ('Victor Barbosa', '2004-07-03');
 
-INSERT INTO Turma (nome, descricao, tipo) VALUES
+INSERT INTO turma (nome, descricao, tipo) VALUES
 ('Desenvolvimento Web', 'Curso de criação sites', 'on'),
 ('Data Science', 'Ciência de dados avançada', 'pos'),
 ('Redes de Computadores', 'Fundamentos de redes', 'nano'),
@@ -71,23 +71,23 @@ INSERT INTO Turma (nome, descricao, tipo) VALUES
 ('Blockchain', 'Tecnologia de registros distribuídos', 'free');
 
 
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (1, 1);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (1, 2);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (2, 3);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (2, 4);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (3, 5);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (3, 6);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (4, 7);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (4, 8);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (5, 9);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (5, 10);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (6, 11);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (6, 12);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (7, 13);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (7, 14);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (8, 15);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (8, 16);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (9, 17);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (9, 18);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (10, 19);
-INSERT INTO Matricula (aluno_id, turma_id) VALUES (10, 20);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (1, 1);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (1, 2);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (2, 3);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (2, 4);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (3, 5);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (3, 6);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (4, 7);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (4, 8);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (5, 9);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (5, 10);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (6, 11);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (6, 12);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (7, 13);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (7, 14);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (8, 15);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (8, 16);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (9, 17);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (9, 18);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (10, 19);
+INSERT INTO matricula (aluno_id, turma_id) VALUES (10, 20);
