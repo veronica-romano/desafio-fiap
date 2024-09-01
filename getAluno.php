@@ -31,7 +31,7 @@ if (!empty($aluno)) {
         <div class=" container responsive-table center shadow mt-1 mb-2">
             <table class="table table-hover" id="the-table">
                 <thead>
-                    <th scope="col">id</th>
+                    <th scope="col">Matrícula</th>
                     <th scope="col">Turma</th>
                     <th scope="col"> Editar</th>
                     <th scope="col">Excluir</th>
