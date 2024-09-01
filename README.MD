@@ -21,7 +21,7 @@
 
 Pontos a melhorar:
 
-- Lidar com erros procurando matrícula por aluno e turma. Caso já exista, retornar mensagem de erro. Caso não exista, gravar e retornar mensagem de sucesso;
 - Não mostrar cursos onde o aluno já está matriculado;
 - Refinar o código do foreach duplo;
 - Usar OOP.
+- Usar frameworks mais elegantes
