@@ -11,5 +11,12 @@ for(let i = 0; i < links.length; i++){
 }
 
 $(document).ready( function () {
-    $('#the-table').DataTable();
+    $('#the-table').DataTable(
+        
+        {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/2.1.5/i18n/pt-BR.json',
+            }
+        }
+    );
 } );
