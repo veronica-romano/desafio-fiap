@@ -2,8 +2,8 @@
 /*Script de conexão ao servidor banco de dados */
 
 $servidor = "localhost";
-$usuario = "root";
-$senha = "";
+$usuario = "ruth";
+$senha = "senha-muito-longa";
 $banco = "desafio_fiap";
 try{
 //Criando a conexão com o MySQL (API/ Driver de conexão)
