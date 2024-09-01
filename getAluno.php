@@ -33,8 +33,8 @@ if (!empty($aluno)) {
                 <thead>
                     <th scope="col">Matrícula</th>
                     <th scope="col">Turma</th>
-                    <th scope="col"> Editar</th>
-                    <th scope="col">Excluir</th>
+                    <th scope="col"> Editar Matrícula</th>
+                    <th scope="col">Excluir Matrícula</th>
                 </thead>
                 <tbody>
                     <?php
