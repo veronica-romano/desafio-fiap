@@ -28,10 +28,14 @@ function lerUmAluno(PDO $conexao, int $id): array
         $consulta->execute();
         //$resultado = $consulta->fetch(PDO::FETCH_ASSOC); 
         $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        if (!$resultado) {
+            throw new Exception("Erro: Aluno com ID $id não encontrado. Volte e tente novamente.");
+        }
+        return $resultado;
     } catch (Exception $erro) {
         die("Erro: " . $erro->getMessage());
     }
-    return $resultado;
 }
 
 
@@ -41,7 +45,7 @@ function inserirAluno(PDO $conexao, string $nome, string $nascimento): void
     if (strlen($nome) < 3) {
         die("Erro: O nome deve ter pelo menos 3 letras. Volte e tente novamente.");
     }
-    
+
     $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, :nascimento)";
     try {
         $consulta = $conexao->prepare($sql);
@@ -50,7 +54,7 @@ function inserirAluno(PDO $conexao, string $nome, string $nascimento): void
         $consulta->execute();
     } catch (Exception $erro) {
 
-        if ($erro->getCode() == 23000) { 
+        if ($erro->getCode() == 23000) {
             if (strpos($erro->getMessage(), '1062 Duplicate entry') !== false) {
                 die("Erro: Aluno '$nome' já está cadastrado. Volte e tente novamente.");
             } else {
