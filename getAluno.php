@@ -1,11 +1,13 @@
 <?php
 require_once "src/functionsMatriculas.php";
+require_once "src/functionsAlunos.php";
 $aluno_id = filter_input(INPUT_GET, 'aluno_id', FILTER_SANITIZE_NUMBER_INT);
+$nomeSemMatricula = lerUmAluno($conexao, $aluno_id);
 $detalhes = lerMatriculaTurmaEAlunoByAluno($conexao, $aluno_id);
 if (!empty($detalhes)) {
     $nomeAluno = $detalhes[0]['nomeAluno'];
 } else {
-    $nomeAluno = 'Aluno não encontrado';
+    $nomeAluno = $nomeSemMatricula['nome'];
 }
 ?>
 
