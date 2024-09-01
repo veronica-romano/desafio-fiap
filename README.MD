@@ -1,4 +1,8 @@
-O script de criação do banco, tabelas e registros iniciais estão no arquivo dump.sql;
+DESAFIO FIAP - VERONICA ROMANO
+
+CRUD simples para gerenciamento de turmas, alunos e matrículas
+
+-- O script de criação do banco, tabelas e registros iniciais estão no arquivo dump.sql;
 
 O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3 e Bootstrap;
 
