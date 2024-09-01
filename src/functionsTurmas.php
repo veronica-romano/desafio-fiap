@@ -3,7 +3,7 @@ require_once "src/connect.php";
 
 //get
 function lerTurmas(PDO $conexao):array{
-    $sql = "SELECT * FROM turma";
+    $sql = "SELECT * FROM turma ORDER BY nome ASC";
 
     try {
         setlocale(LC_ALL, 'pt_BR');
