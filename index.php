@@ -10,23 +10,23 @@
 </head>
 <body>
 <div class="container mt-4">
-    <h1 class="text-center" >CRUD com PHP e MySQL</h1>
+    <h1 class="text-center  mt-4" >TESTE FIAP - VERONICA ROMANO</h1>
 
-    <h2 class="text-center">Gerenciamento de alunos, turmas e matrículas</h2>
+    <h2 class="text-center  mt-4 pb-4">CRUD para Gerenciamento de alunos, turmas e matrículas</h2>
 
-    <div class="row mt-4 ml-0">
+    <div class="row mt-5 ml-0">
     <p class="col text-center">
-        <a class="btn btn-primary btn-lg" href="getAlunos.php"><i class="bi bi-file-person"></i> Alunos</a>
+        <a class="btn-secondary btn-lg btn" href="getAlunos.php"><i class="bi bi-file-person"></i> Alunos</a>
     </p>
     
     
     <p class="col text-center">
-        <a class="btn btn-primary btn-lg" href="getTurmas.php"><i class="bi bi-journal-bookmark"></i> Turmas</a>
+        <a class=" btn-secondary btn-lg btn" href="getTurmas.php"><i class="bi bi-journal-bookmark"></i> Turmas</a>
     </p>
     
     
     <p class="col text-center">
-        <a class="btn btn-primary btn-lg" href="getMatriculas.php"><i class="bi bi-table"></i> Matriculas</a>
+        <a class=" btn-secondary btn-lg btn" href="getMatriculas.php"><i class="bi bi-table"></i> Matriculas</a>
     </p>
     </div>
 </div>
