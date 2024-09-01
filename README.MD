@@ -19,7 +19,7 @@
 - Antes de excluir uma turma, é necessário excluir todas as matrículas em que a turma está;
 
 
-####Pontos a melhorar:
+#### Pontos a melhorar:
 
 - Dropdowns searchable para mais usabilidade;
 - Não mostrar cursos onde o aluno já está matriculado;
