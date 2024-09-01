@@ -41,8 +41,8 @@ if (!empty($detalhes)) {
                         <tr>
                             <td scope="row" class="turmas id"><?= $detalhe['matriculaId'] ?></td>
                             <td class="alunos nome"><?= $detalhe['nomeTurma'] ?></td>
-                            <td class="turmas atualizar"><a href="updateMatriculas.php?id=<?= $detalhe['idAluno'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="turmas excluir"><a href="deleteMatriculas.php?id=<?= $detalhe['idAluno'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                            <td class="turmas atualizar"><a href="updateMatriculas.php?id=<?= $detalhe['matriculaId'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
+                            <td class="turmas excluir"><a href="deleteMatriculas.php?id=<?= $detalhe['matriculaId'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                         </tr>
                     <?php
