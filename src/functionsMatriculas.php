@@ -49,7 +49,7 @@ function inserirMatricula(PDO $conexao, string $aluno_id, string $turma_id):void
 
 //Update
 function atualizarMatricula(PDO $conexao, int $id, string $aluno_id, string $turma_id):void{
-    $sql = "UPDATE aluno SET aluno_id = :aluno_id, turma_id = :turma_id WHERE id = :id";
+    $sql = "UPDATE matricula SET aluno_id = :aluno_id, turma_id = :turma_id WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);

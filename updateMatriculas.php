@@ -10,9 +10,9 @@ $listaDeTurmas = lerTurmas($conexao);
 if (isset($_POST['atualizar'])) {
     //echo "ok!";
     require_once "src/functionsMatriculas.php";
-    $aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_SPECIAL_CHARS);
-    $turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    atualizarAluno($conexao, $id, $aluno_id, $turma_id);
+    $aluno_id = filter_input(INPUT_POST, 'aluno_id', FILTER_SANITIZE_NUMBER_INT);
+    $turma_id = filter_input(INPUT_POST, 'turma_id', FILTER_SANITIZE_NUMBER_INT);
+    atualizarMatricula($conexao, $id, $aluno_id, $turma_id);
     header("location:getMatriculas.php?status=sucesso");
 }
 ?>
