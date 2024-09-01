@@ -26,6 +26,7 @@ if (isset($_POST['atualizar'])) {
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@ if (isset($_POST['atualizar'])) {
         <form action="" method="post">
             <p>
                 <label for="aluno_id" class="form-label">Aluno:</label>
-                <select id="aluno_id" name="aluno_id" class="form-control">
+                <select id="aluno_id" name="aluno_id" class="form-control"  disabled>
 
                     <!-- PHP will generate options here -->
                     <?php foreach ($listaDeAlunos as $aluno): ?>
@@ -51,7 +52,7 @@ if (isset($_POST['atualizar'])) {
                 <div class="col">
                     <p>
                         <label for="turma_id" class="form-label">Turma:</label>
-                        <select id="turma_id" name="turma_id" class="form-control">
+                        <select id="turma_id" name="turma_id" class="form-control chosen-select">
 
                             <?php foreach ($listaDeTurmas as $turma): ?>
                                 <option value="<?= htmlspecialchars($turma['id']); ?>" <?= $turma['id'] == $matricula['turma_id'] ? 'selected' : ''; ?>>
@@ -76,7 +77,11 @@ if (isset($_POST['atualizar'])) {
         </form>
         <hr>
     </div>
-    <script src="script.js"></script>
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<script src="script.js"></script>
 
 </html>

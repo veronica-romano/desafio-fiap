@@ -25,6 +25,8 @@ if (isset($_POST['inserir'])) {
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+	
 </head>
 
 <body>
@@ -39,7 +41,7 @@ if (isset($_POST['inserir'])) {
 			<div class="row">
 				<div class="col">
 					<p><label for="aluno" class="form-label">Aluno:</label>
-						<select id="validationDefault01" name="aluno_id" class="form-control" required>
+						<select id="validationDefault01" name="aluno_id" class="form-control chosen-select" required>
 							<option value="">Selecione um aluno</option>
 							<!-- PHP will generate options here -->
 							<?php foreach ($listaDeAlunos as $aluno): ?>
@@ -50,7 +52,7 @@ if (isset($_POST['inserir'])) {
 				</div>
 				<div class="col">
 					<p><label for="turma" class="form-label">Turma:</label>
-						<select id="validationDefault01" name="turma_id" class="form-control" required>
+						<select id="validationDefault01" name="turma_id" class="form-control chosen-select" required>
 							<option value="">Selecione a turma</option>
 							<?php foreach ($listaDeTurmas as $turma): ?>
 								<option value="<?= $turma['id']; ?>" <?= ($turma_id == $turma['id']) ? 'selected' : ''; ?>><?= $turma['nome']; ?></option>
@@ -71,9 +73,16 @@ if (isset($_POST['inserir'])) {
 		<hr>
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<script src="script.js"></script>
+
 </html>
 
 
 
 
-</html>
+
+
+
