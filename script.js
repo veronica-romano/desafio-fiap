@@ -260,7 +260,7 @@ $(document).ready( function () {
             "searchPlaceholder": "Buscar registros"
         } ,
             
-       "order": []
+       "order": [1, 'asc']
     }
     );
 } );
