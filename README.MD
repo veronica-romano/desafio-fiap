@@ -1,18 +1,19 @@
-DESAFIO FIAP - VERONICA ROMANO
+# DESAFIO FIAP - VERONICA ROMANO
 
-CRUD simples para gerenciamento de turmas, alunos e matrículas
+## CRUD simples para gerenciamento de turmas, alunos e matrículas
 
--- O script de criação do banco, tabelas e registros iniciais estão no arquivo dump.sql;
+- O script de criação do banco, tabelas e registros iniciais estão no arquivo dump.sql;
 
-O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3 e Bootstrap;
+- O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3 e Bootstrap;
 
-É possível fazer Create, Read, Update e Delete nos campos Aluno, Matrícula e Turma;
+- É possível fazer Create, Read, Update e Delete nos campos Aluno, Matrícula e Turma;
 
-As tabelas são mostradas por JQuery, o que permite que o usuário ordene da maneira que preferir;
+- As tabelas são mostradas por JQuery, o que permite que o usuário ordene da maneira que preferir;
 
-Também é possível filtrar alunos por meio da barra de pesquisa;
+- Também é possível filtrar alunos por meio da barra de pesquisa;
 
-Importante:
+
+### Importante:
 
 - Antes de excluir um aluno, é necessário excluir todas as matrículas em que o aluno está;
 - Antes de excluir uma turma, é necessário excluir todas as matrículas em que a turma está;
