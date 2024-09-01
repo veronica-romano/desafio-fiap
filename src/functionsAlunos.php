@@ -38,6 +38,10 @@ function lerUmAluno(PDO $conexao, int $id): array
 //Insert
 function inserirAluno(PDO $conexao, string $nome, string $nascimento): void
 {
+    if (strlen($nome) < 3) {
+        die("Erro: O nome deve ter pelo menos 3 letras. Volte e tente novamente.");
+    }
+    
     $sql = "INSERT INTO aluno (nome, nascimento) VALUES (:nome, :nascimento)";
     try {
         $consulta = $conexao->prepare($sql);
@@ -84,6 +88,15 @@ function excluirAluno(PDO $conexao, int $id): void
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
         $consulta->execute();
     } catch (Exception $erro) {
-        die("Erro: " . $erro->getMessage());
+        //die("Erro: " . $erro->getMessage());
+        if ($erro->getCode() == 23000) {
+            if (strpos($erro->getMessage(), '1451 Cannot delete or update a parent row') !== false) {
+                die("Erro: Aluno com matrícula ativa. Não será possível excluir.");
+            } else {
+                echo "Erro: Não foi possível excluir. Entre em ontato com o suporte.";
+            }
+        } else {
+            echo "Erro inesperado: " . $erro->getMessage();
+        }
     }
 }

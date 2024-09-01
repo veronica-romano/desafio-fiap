@@ -88,6 +88,15 @@ function excluirTurma(PDO $conexao, int $id):void{
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
         $consulta->execute();
     } catch (Exception $erro) {
-        die("Erro: ".$erro->getMessage());
+        //die("Erro: ".$erro->getMessage());
+        if ($erro->getCode() == 23000) {
+            if (strpos($erro->getMessage(), '1451 Cannot delete or update a parent row') !== false) {
+                die("Erro: Existem alunos matriculados. Não será possível excluir a turma.");
+            } else {
+                echo "Erro: Não foi possível excluir a turma. Entre em ontato com o suporte.";
+            }
+        } else {
+            echo "Erro inesperado: " . $erro->getMessage();
+        }
     }
 }

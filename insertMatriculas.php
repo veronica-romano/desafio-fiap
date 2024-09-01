@@ -1,4 +1,7 @@
 <?php
+require_once "src/functionsMatriculas.php";
+$turma_id = filter_input(INPUT_GET, 'turma_id', FILTER_SANITIZE_NUMBER_INT);
+$aluno_id = filter_input(INPUT_GET, 'aluno_id', FILTER_SANITIZE_NUMBER_INT);
 require_once "src/functionsAlunos.php";
 $listaDeAlunos = lerAlunos($conexao);
 require_once "src/functionsTurmas.php";
@@ -36,11 +39,11 @@ if (isset($_POST['inserir'])) {
 			<div class="row">
 				<div class="col">
 					<p><label for="aluno" class="form-label">Aluno:</label>
-						<select id="validationDefault01"  name="aluno_id"  class="form-control" required>
+						<select id="validationDefault01" name="aluno_id" class="form-control" required>
 							<option value="">Selecione um aluno</option>
 							<!-- PHP will generate options here -->
 							<?php foreach ($listaDeAlunos as $aluno): ?>
-								<option value="<?= $aluno['id']; ?>"><?= $aluno['nome']; ?></option>
+								<option value="<?= $aluno['id']; ?>"<?= ($aluno_id == $aluno['id']) ? 'selected' : ''; ?>><?= $aluno['nome']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</p>
@@ -50,7 +53,7 @@ if (isset($_POST['inserir'])) {
 						<select id="validationDefault01" name="turma_id" class="form-control" required>
 							<option value="">Selecione a turma</option>
 							<?php foreach ($listaDeTurmas as $turma): ?>
-								<option value="<?= $turma['id']; ?>"><?= $turma['nome']; ?></option>
+								<option value="<?= $turma['id']; ?>" <?= ($turma_id == $turma['id']) ? 'selected' : ''; ?>><?= $turma['nome']; ?></option>
 							<?php endforeach; ?>
 
 						</select>

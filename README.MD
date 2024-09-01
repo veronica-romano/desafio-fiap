@@ -25,4 +25,5 @@ Pontos a melhorar:
 - Não mostrar cursos onde o aluno já está matriculado;
 - Refinar o código do foreach duplo;
 - Usar OOP;
-- Usar frameworks mais elegantes.
+- Usar frameworks mais elegantes;
+- Autenticação por login e senha.
