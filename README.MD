@@ -30,7 +30,6 @@
 
 #### Pontos a melhorar:
 
-- Dropdowns searchable para mais usabilidade;
 - Não mostrar cursos onde o aluno já está matriculado na tela de inserir a matrícula;
 - Refinar o código do foreach duplo nos dropdowns;
 - Usar OOP;
