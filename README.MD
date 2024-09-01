@@ -8,7 +8,7 @@
 
 - O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3, JQuery e Bootstrap. É importante o xampp instalado e clonar o projeto na pasta htdocs;
 
-- Dependencias jQuery e Bootstrap referenciadas via CDN.
+- Dependencias jQuery e Bootstrap referenciadas via CDN com alguns detalhes no código.
 
 - É possível fazer Create, Read, Update e Delete nos campos Aluno, Matrícula e Turma;
 
