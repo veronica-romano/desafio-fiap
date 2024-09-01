@@ -1,9 +1,11 @@
 <?php
 require_once "src/functionsMatriculas.php";
+require_once "src/functionsTurmas.php";
 $turma_id = filter_input(INPUT_GET, 'turma_id', FILTER_SANITIZE_NUMBER_INT);
+$turma = lerUmaTurma($conexao, $turma_id);
 $detalhes = lerMatriculaTurmaEAluno($conexao, $turma_id);
-if (!empty($detalhes)) {
-    $nomeTurma = $detalhes[0]['nomeTurma'];
+if (!empty($turma)) {
+    $nomeTurma = $turma['nome'];
 } else {
     $nomeTurma = 'Turma não encontrada';
 }
