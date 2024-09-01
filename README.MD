@@ -23,7 +23,7 @@
 
 ### Importante:
 
-- Usuario e senha do banco de dados devem ser ajustados na sua versão no arquivo src/connect.php;
+- Usuario e senha do banco de dados devem ser ajustados no arquivo php.ini;
 - Antes de excluir um aluno, é necessário excluir todas as matrículas refrentes ao aluno;
 - Antes de excluir uma turma, é necessário excluir todas as matrículas referentes a turma;
 
