@@ -21,7 +21,8 @@
 
 Pontos a melhorar:
 
+- Dropdowns searchable para mais usabilidade;
 - Não mostrar cursos onde o aluno já está matriculado;
 - Refinar o código do foreach duplo;
-- Usar OOP.
-- Usar frameworks mais elegantes
+- Usar OOP;
+- Usar frameworks mais elegantes.
