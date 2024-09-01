@@ -1,7 +1,12 @@
 <?php
-require_once "src/functionsAlunos.php";
-$listaDeAlunos = lerAlunos($conexao);
-
+require_once "src/functionsMatriculas.php";
+$turma_id = filter_input(INPUT_GET, 'turma_id', FILTER_SANITIZE_NUMBER_INT);
+$detalhes = lerMatriculaTurmaEAluno($conexao, $turma_id);
+if (!empty($detalhes)) {
+    $nomeTurma = $detalhes[0]['nomeTurma'];
+} else {
+    $nomeTurma = 'Turma não encontrada';
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +15,7 @@ $listaDeAlunos = lerAlunos($conexao);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lista de alunos - CRUD com PHP e MySQL</title>
+    <title>Detalhes da turma - <?= htmlspecialchars($nomeTurma) ?></title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
@@ -19,27 +24,25 @@ $listaDeAlunos = lerAlunos($conexao);
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">Lista de alunos</h1>
+        <h1 class="text-center mt-4">Alunos da turma - <?= htmlspecialchars($nomeTurma) ?> </h1>
         <hr>
         <div class=" container responsive-table center shadow mt-1 mb-2">
             <table class="table table-hover" id="the-table">
                 <thead>
-                    <th scope="col">Usuário</th>
+                    <th scope="col">id</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Nascimento</th>
-                    <th scope="col">Editar</th>
+                    <th scope="col"> Editar</th>
                     <th scope="col">Excluir</th>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($listaDeAlunos as $aluno) {
+                    foreach ($detalhes as $detalhe) {
                     ?>
                         <tr>
-                            <th scope="row" class="alunos id"><?= $aluno['id'] ?></th>
-                            <td class="alunos nome"><?= $aluno['nome'] ?></td>
-                            <td class="alunos nascimento"><?= $aluno['nascimento'] ?></td>
-                            <td class="alunos atualizar"><a href="updateAlunos.php?id=<?= $aluno['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="alunos excluir"><a href="deleteAlunos.php?id=<?= $aluno['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                            <td scope="row" class="turmas id"><?= $detalhe['matriculaId'] ?></td>
+                            <td class="alunos nome"><?= $detalhe['nomeAluno'] ?></td>
+                            <td class="turmas atualizar"><a href="updateAlunos.php?id=<?= $detalhe['idAluno'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
+                            <td class="turmas excluir"><a href="deleteMatriculas.php?id=<?= $detalhe['idAluno'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                         </tr>
                     <?php
@@ -48,11 +51,12 @@ $listaDeAlunos = lerAlunos($conexao);
                 </tbody>
             </table>
         </div>
-        <!-- links -->
-        <div class="row mt-4">
-            <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar</a></p>
-            <p class="col text-center"><a href="insertAlunos.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir novo aluno</a></p>
-        </div>
+        <!-- links-->
+
+    </div>
+    <div class="row mt-4">
+        <p class="col text-center"><a href="index.php" class="btn btn-secondary btn-lg"><i class="bi bi-arrow-left"></i> Voltar</a></p>
+        <p class="col text-center"><a href="insertTurmas.php" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i> Inserir Turmas</a></p>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

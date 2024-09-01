@@ -4,6 +4,7 @@ $listaDeAlunos = lerAlunos($conexao);
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $aluno = lerUmAluno($conexao, $id);
 $listaDeAlunos = lerAlunos($conexao);
+
 if (isset($_POST['atualizar'])) {
     //echo "ok!";
     require_once "src/functionsAlunos.php";
@@ -12,6 +13,13 @@ if (isset($_POST['atualizar'])) {
     atualizarAluno($conexao, $id, $nome, $nascimento);
     header("location:getAlunos.php?status=sucesso");
 }
+
+if (!empty($aluno)) {
+    $nomeAluno = $aluno['nome'];
+} else {
+    $nomeAluno = 'Aluno não encontrado'; // Fallback title if no student found
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +27,7 @@ if (isset($_POST['atualizar'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Atualizar dados - Exercício CRUD com PHP e MySQL</title>
+    <title>Atualizar dados - CRUD com PHP e MySQL</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
@@ -27,7 +35,7 @@ if (isset($_POST['atualizar'])) {
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">Atualizar dados do aluno </h1>
+        <h1 class="text-center mt-4">Atualizar dados do aluno <?= htmlspecialchars($nomeAluno) ?> </h1>
         <hr>
         <p class="text-center">Utilize o formulário abaixo para atualizar os dados do aluno.</p>
         <form action="" method="post">

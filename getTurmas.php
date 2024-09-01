@@ -26,6 +26,7 @@ $listaDeTurmas = lerTurmas($conexao);
                     <th scope="col">Nome</th>
                     <th scope="col">Descricao</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Detalhes</th>
                     <th scope="col"> Editar</th>
                     <th scope="col">Excluir</th>
                 </thead>
@@ -38,6 +39,7 @@ $listaDeTurmas = lerTurmas($conexao);
                             <td class="turmas nome"><?= $turma['nome'] ?></td>
                             <td class="turmas descricao"><?= $turma['descricao'] ?></td>
                             <td class="turmas tipo"><?= $turma['tipo'] ?></td>
+                            <td class="turmas detalhes"><a href="getTurma.php?turma_id=<?= $turma['id'] ?>" class="btn btn-success"><i class="bi bi-people"></i></a></td>
                             <td class="turmas atualizar"><a href="updateTurmas.php?id=<?= $turma['id'] ?>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a></td>
                             <td class="turmas excluir"><a href="deleteTurmas.php?id=<?= $turma['id'] ?>" class="exclusao btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
