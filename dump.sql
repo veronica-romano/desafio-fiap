@@ -21,8 +21,8 @@ CREATE TABLE tatricula (
     id INT PRIMARY KEY AUTO_INCREMENT,
     aluno_id INT NOT NULL,
     turma_id INT NOT NULL,
-    FOREIGN KEY (aluno_id) REFERENCES Aluno(id),
-    FOREIGN KEY (turma_id) REFERENCES Turma(id),
+    FOREIGN KEY (aluno_id) REFERENCES aluno(id),
+    FOREIGN KEY (turma_id) REFERENCES turma(id),
     UNIQUE (aluno_id, turma_id)
 );
 
