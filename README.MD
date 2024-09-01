@@ -24,15 +24,17 @@
 ### Importante:
 
 - Usuario e senha do banco de dados devem ser ajustados na sua versão no arquivo src/connect.php;
-- Antes de excluir um aluno, é necessário excluir todas as matrículas em que o aluno está;
-- Antes de excluir uma turma, é necessário excluir todas as matrículas em que a turma está;
+- Antes de excluir um aluno, é necessário excluir todas as matrículas refrentes ao aluno;
+- Antes de excluir uma turma, é necessário excluir todas as matrículas referentes a turma;
 
 
 #### Pontos a melhorar:
 
 - Dropdowns searchable para mais usabilidade;
-- Não mostrar cursos onde o aluno já está matriculado;
+- Não mostrar cursos onde o aluno já está matriculado na tela de inserir a matrícula;
 - Refinar o código do foreach duplo nos dropdowns;
 - Usar OOP;
 - Usar frameworks mais elegantes;
+- Melhorar exibição de erros;
+- Validar nomes de aluno e turma com Regex;
 - Autenticação por login e senha.
