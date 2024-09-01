@@ -260,7 +260,12 @@ $(document).ready( function () {
             "searchPlaceholder": "Buscar registros"
         } ,
             
-       "order": [1, 'asc']
+       "order": [1, 'asc'],
+
+       lengthMenu: [
+        [5, 10, 20, -1],
+        [5, 10, 20, 'Todos']
+    ]
     }
     );
 } );
