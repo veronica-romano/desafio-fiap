@@ -17,7 +17,7 @@ CREATE TABLE turma (
     tipo ENUM('on', 'pos', 'nano', 'free') NOT NULL
 );
 
-CREATE TABLE tatricula (
+CREATE TABLE matricula (
     id INT PRIMARY KEY AUTO_INCREMENT,
     aluno_id INT NOT NULL,
     turma_id INT NOT NULL,
