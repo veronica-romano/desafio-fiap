@@ -42,6 +42,9 @@ function lerUmAluno(PDO $conexao, int $id): array
 //Insert
 function inserirAluno(PDO $conexao, string $nome, string $nascimento): void
 {
+    $nome = iconv('UTF-8', 'ASCII//TRANSLIT', $nome);
+    $nome = preg_replace("/[^a-zA-Z\s]/", "", $nome);
+
     if (strlen($nome) < 3) {
         die("Erro: O nome deve ter pelo menos 3 letras. Volte e tente novamente.");
     }
@@ -70,6 +73,13 @@ function inserirAluno(PDO $conexao, string $nome, string $nascimento): void
 //Update
 function atualizarAluno(PDO $conexao, int $id, string $nome, string $nascimento): void
 {
+    $nome = iconv('UTF-8', 'ASCII//TRANSLIT', $nome);
+    $nome = preg_replace("/[^a-zA-Z\s]/", "", $nome);
+
+    if (strlen($nome) < 3) {
+        die("Erro: O nome deve ter pelo menos 3 letras. Volte e tente novamente.");
+    }
+    
     $sql = "UPDATE aluno SET nome = :nome, nascimento = :nascimento WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
