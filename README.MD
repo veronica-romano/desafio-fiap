@@ -6,9 +6,9 @@
 
 - O script de criação do banco, tabelas e registros iniciais estão no arquivo dump.sql;
 
-- O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3, JQuery e Bootstrap. É importante o xampp instalado e clonar o projeto na pasta htdocs;
+- O projeto foi construído em PHP puro com XAMPP, MySql, HTML5, CSS3, JQuery, Chosen e Bootstrap. É importante o xampp instalado e clonar o projeto na pasta htdocs;
 
-- Dependencias jQuery e Bootstrap referenciadas via CDN com alguns detalhes no código.
+- Dependencias ou plugins jQuery e Bootstrap referenciadas via CDN com alguns detalhes no código.
 
 - É possível fazer Create, Read, Update e Delete nos campos Aluno, Matrícula e Turma;
 
@@ -19,6 +19,8 @@
 - Os dados são mostrados por tabelas em JQuery, o que permite que o usuário ordene da maneira que preferir. Sendo ordem alfabética ou por identificados de usuário e registro;
 
 - Também é possível filtrar alunos por meio da barra de pesquisa por letras ou números;
+
+- Usando o e plugin Chosen, é possível usar search em alguns Dropdowns.
 
 
 ### Importante:
