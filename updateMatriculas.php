@@ -37,7 +37,7 @@ if (isset($_POST['atualizar'])) {
         <form action="" method="post">
             <p>
                 <label for="aluno_id" class="form-label">Aluno:</label>
-                <select id="aluno_id" name="aluno_id" class="form-control"  disabled>
+                <select id="aluno_id" name="aluno_id" class="form-control" readonly="readonly">
 
                     <!-- PHP will generate options here -->
                     <?php foreach ($listaDeAlunos as $aluno): ?>
