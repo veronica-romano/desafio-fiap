@@ -38,7 +38,7 @@ BEGIN
         '-', 
         (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES 
          WHERE TABLE_SCHEMA = DATABASE() 
-         AND TABLE_NAME = 'Aluno')
+         AND TABLE_NAME = 'aluno')
     );
 END
 //
