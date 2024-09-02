@@ -66,7 +66,7 @@ INSERT INTO aluno (nome, nascimento) VALUES ('Felipe Castro', '2003-06-18');
 INSERT INTO aluno (nome, nascimento) VALUES ('Gabriela Nunes', '2005-02-27');
 INSERT INTO aluno (nome, nascimento) VALUES ('Henrique Alves', '2004-04-14');
 INSERT INTO aluno (nome, nascimento) VALUES ('Isabela Pereira', '2003-08-05');
-INSERT INTO aluno (nome, nascimento) VALUES ('João Fernandes', '2005-12-10');
+INSERT INTO aluno (nome, nascimento) VALUES ('Joao Fernandes', '2005-12-10');
 INSERT INTO aluno (nome, nascimento) VALUES ('Karen Rocha', '2004-10-22');
 INSERT INTO aluno (nome, nascimento) VALUES ('Leonardo Costa', '2003-02-01');
 INSERT INTO aluno (nome, nascimento) VALUES ('Mariana Oliveira', '2005-06-15');
