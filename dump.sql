@@ -2,21 +2,22 @@ CREATE DATABASE desafio_fiap;
 
 USE desafio_fiap;
 
-
+DELIMITER //
 CREATE TABLE aluno (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL UNIQUE,
     nascimento DATE NOT NULL,
+    usuario VARCHAR(100) UNIQUE,
     CHECK (LENGTH(nome) >= 3)
 );
-
+//
 CREATE TABLE turma (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     tipo ENUM('on', 'pos', 'nano', 'free') NOT NULL
 );
-
+//
 CREATE TABLE matricula (
     id INT PRIMARY KEY AUTO_INCREMENT,
     aluno_id INT NOT NULL,
@@ -25,6 +26,36 @@ CREATE TABLE matricula (
     FOREIGN KEY (turma_id) REFERENCES turma(id),
     UNIQUE (aluno_id, turma_id)
 );
+
+//
+
+CREATE TRIGGER before_insert_aluno
+BEFORE INSERT ON aluno
+FOR EACH ROW
+BEGIN
+    SET NEW.usuario = CONCAT(
+        LOWER(SUBSTRING_INDEX(NEW.nome, ' ', 1)), 
+        '-', 
+        (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES 
+         WHERE TABLE_SCHEMA = DATABASE() 
+         AND TABLE_NAME = 'Aluno')
+    );
+END
+//
+CREATE TRIGGER before_update_aluno
+BEFORE UPDATE ON aluno
+FOR EACH ROW
+BEGIN
+    IF NEW.nome != OLD.nome THEN
+        SET NEW.usuario = CONCAT(
+            LOWER(SUBSTRING_INDEX(NEW.nome, ' ', 1)), 
+            '-', 
+            NEW.id
+        );
+    END IF;
+END//
+
+DELIMITER ;
 
 INSERT INTO aluno (nome, nascimento) VALUES
 ('Alice Souza', '2005-01-15'),

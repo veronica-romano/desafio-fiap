@@ -36,7 +36,7 @@ $listaDeAlunos = lerAlunos($conexao);
                     foreach ($listaDeAlunos as $aluno) {
                     ?>
                         <tr>
-                            <th scope="row" class="alunos id"><?= $aluno['id'] ?></th>
+                            <th scope="row" class="alunos id"><?= $aluno['usuario'] ?></th>
                             <td class="alunos nome"><?= $aluno['nome'] ?></td>
                             <td class="alunos nascimento"><?= $aluno['nascimento'] ?></td>
                             <td class="alunos atualizar"><a href="getAluno.php?aluno_id=<?= $aluno['id'] ?>" class="btn btn-success"><i class="bi bi-file-person"></i></a></td>
