@@ -28,12 +28,12 @@
 - Antes de excluir uma turma, é necessário excluir todas as matrículas referentes a turma;
 
 
-#### Pontos a melhorar:
+#### Possíveis melhorias:
 
 - Não mostrar cursos onde o aluno já está matriculado na tela de inserir a matrícula;
 - Refinar o código do foreach duplo nos dropdowns;
 - Usar OOP;
 - Usar frameworks mais elegantes;
 - Melhorar exibição de erros;
-- Validar nomes de aluno e turma com Regex;
+- Repensar a solução para validar usuário e nome de aluno e turma com Regex;
 - Autenticação por login e senha.
